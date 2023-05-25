@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title%}Products{% endblock %}
+{% block body %}
+{% if products %}
+ <table id="products" class="table table-striped">
+ <thead>
+ <tr>
+ <th>Nom</th>
+ <th>Description</th>
+ <th>Prix</th>
+ <th>Image</th>
+ </tr>
+ </thead>
+ <tbody>
+ {% for product in products %}
+ <tr>
+ <td>{{ product.nom }}</td>
+ <td>{{ product.description }}</td>
+ <td>{{ product.prix }}</td>
+ <td>{{ product.image }}</td>
+ <td>
+ <a href="/product/{{ article.id }}" class="btn btn-dark">Détails</a>
+ </td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+ {% else %}
+ <p>no product</p>
+ {% endif %}
+{% endblock %}
